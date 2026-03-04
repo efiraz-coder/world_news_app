@@ -3,139 +3,70 @@
     <html lang="he" dir="rtl">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>מבט עולמי - לוח דיווח אישי</title>
+        <title>מבט עולמי מעודכן</title>
         <style>
-            body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f7f9; margin: 0; padding: 20px; }
+            body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; margin: 0; padding: 20px; }
             .container { max-width: 1200px; margin: auto; }
-            header { background: white; padding: 25px; border-radius: 15px; text-align: center; margin-bottom: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-            h1 { margin: 0; color: #111; font-size: 2em; }
-            .links { margin-top: 15px; border-top: 1px solid #eee; padding-top: 15px; }
-            .links a { text-decoration: none; margin: 0 10px; color: #007bff; font-weight: bold; font-size: 0.9em; }
+            header { background: white; padding: 20px; border-radius: 15px; text-align: center; margin-bottom: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+            .update-bar { background: #fff3cd; padding: 10px; border-radius: 8px; margin-bottom: 20px; font-weight: bold; color: #856404; display: flex; justify-content: center; align-items: center; gap: 15px; }
+            .refresh-btn { background: #007bff; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-family: inherit; font-weight: bold; }
+            .refresh-btn:hover { background: #0056b3; }
             .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-            .card { background: white; padding: 20px; border-radius: 12px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.3s; display: flex; flex-direction: column; }
-            .card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
-            .source-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-weight: bold; color: #666; font-size: 0.85em; }
-            .favicon { width: 18px; height: 18px; border-radius: 3px; }
-            h3 { margin: 0 0 10px 0; font-size: 1.15em; line-height: 1.4; color: #000; }
-            p { margin: 0; font-size: 0.95em; color: #444; line-height: 1.6; }
+            .card { background: white; padding: 20px; border-radius: 12px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 5px solid #007bff; }
+            .source-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-weight: bold; color: #666; }
+            .favicon { width: 16px; height: 16px; }
         </style>
     </head>
     <body>
         <div class="container">
             <header>
                 <h1>מבט עולמי 🌍</h1>
-                <div class="links">
-                    <strong>גישה מהירה:</strong>
-                    <a href="https://www.bloomberg.com" target="_blank">Bloomberg</a> | 
-                    <a href="https://www.economist.com" target="_blank">The Economist</a> | 
-                    <a href="https://www.memri.org" target="_blank">MEMRI</a> | 
-                    <a href="https://www.washingtoninstitute.org" target="_blank">WINEP</a>
+                <div class="update-bar">
+                    <span>עודכן לאחרונה: 04/03/2026 בשעה 06:30</span>
+                    <button class="refresh-btn" onclick="location.reload()">רענן דף</button>
                 </div>
             </header>
-            <div id="news-grid" class="grid">
-                
-        <div class="card" style="border-top: 5px solid #007bff;" onclick="window.open('https://www.ft.com/content/9a9b0127-1014-4186-99e3-893603011cef', '_blank')">
+            <div class="grid">
+        <div class="card" onclick="window.open('https://www.ft.com/content/9a9b0127-1014-4186-99e3-893603011cef', '_blank')">
             <div class="source-header">
-                <img src="https://www.google.com/s2/favicons?sz=64&domain=www.ft.com" class="favicon">
-                <span>Financial Times</span>
+                <img src="https://www.google.com/s2/favicons?domain=www.ft.com" class="favicon">
+                Financial Times
             </div>
             <h3>ישראל פותחת ב'תקיפות נרחבות' על איראן</h3>
             <p>דונלד טראמפ אמר שצבא ארה"ב יוכל להתחיל ללוות מכליות נפט וגז העוברות את המפרץ "במידת הצורך"...</p>
         </div>
-        
-        <div class="card" style="border-top: 5px solid #007bff;" onclick="window.open('https://www.wsj.com/articles/palestinians-flock-back-to-northern-gaza-on-foot-after-hostage-release-breakthrough-3f60e2db', '_blank')">
+        <div class="card" onclick="window.open('https://www.wsj.com/articles/palestinians-flock-back-to-northern-gaza-on-foot-after-hostage-release-breakthrough-3f60e2db', '_blank')">
             <div class="source-header">
-                <img src="https://www.google.com/s2/favicons?sz=64&domain=feeds.a.dj.com" class="favicon">
-                <span>Wall Street Journal</span>
+                <img src="https://www.google.com/s2/favicons?domain=feeds.a.dj.com" class="favicon">
+                Wall Street Journal
             </div>
             <h3>הפלסטינים זורמים חזרה לצפון עזה ברגל</h3>
             <p>ישראל אפשרה לעקורים עזתים להתחיל לחצות אזור צבאי שחוצה את המובלעת לאחר שנשבר מבוי סתום על שחרור בני ערובה....</p>
         </div>
-        
-        <div class="card" style="border-top: 5px solid #007bff;" onclick="window.open('https://www.nytimes.com/live/2026/03/03/world/iran-war-israel-lebanon-trump', '_blank')">
+        <div class="card" onclick="window.open('https://www.nytimes.com/live/2026/03/03/world/iran-war-israel-lebanon-trump', '_blank')">
             <div class="source-header">
-                <img src="https://www.google.com/s2/favicons?sz=64&domain=rss.nytimes.com" class="favicon">
-                <span>New York Times</span>
+                <img src="https://www.google.com/s2/favicons?domain=rss.nytimes.com" class="favicon">
+                New York Times
             </div>
             <h3>עדכונים חיים של איראן: ישראל מתחילה ב"גל רחב של תקיפות" על התשתית של איראן</h3>
-            <p>ארה"ב הכריזה על שמותיהם של ארבעה חיילים שנהרגו מירי מזל"ט איראני ביום ראשון. מנהיג הפיקוד המרכזי של ארה"ב אמר שיותר מ-50,000 חיילים, 200 לוחמים, שתי נושאות מטוסים...</p>
+            <p>ארה"ב הכריזה על שמותיהם של ארבעה חיילים שנהרגו מירי מזל"ט איראני ביום ראשון. מנהיג הפיקוד המרכזי של ארה"ב אמר שיותר מ-50,000 חיילים, 200 לוחמים, שניים...</p>
         </div>
-        
-        <div class="card" style="border-top: 5px solid #007bff;" onclick="window.open('https://www.theguardian.com/world/2026/mar/03/south-sudan-risks-return-civil-war-violence-escalates', '_blank')">
+        <div class="card" onclick="window.open('https://www.theguardian.com/world/2026/mar/03/south-sudan-risks-return-civil-war-violence-escalates', '_blank')">
             <div class="source-header">
-                <img src="https://www.google.com/s2/favicons?sz=64&domain=www.theguardian.com" class="favicon">
-                <span>The Guardian</span>
+                <img src="https://www.google.com/s2/favicons?domain=www.theguardian.com" class="favicon">
+                The Guardian
             </div>
             <h3>דרום סודן מסתכנת לחזור למלחמת אזרחים מלאה עם הסלמה של האלימות</h3>
+            <p><p>לפחות 169 הרוגים בפשיטה סמוך לגבול סודן כאשר העימותים בין כוחות הממשלה לאופוזיציה מתגברים</p><p>דרום סודן נרתעת מסכסוך מתגבר בין...</p>
+        </div>
+        <div class="card" onclick="window.open('https://asia.nikkei.com/editor-s-picks/interview/japan-s-startup-party-wants-ai-factored-into-migration-policy', '_blank')">
+            <div class="source-header">
+                <img src="https://www.google.com/s2/favicons?domain=asia.nikkei.com" class="favicon">
+                Nikkei Asia
+            </div>
+            <h3>'מפלגת הסטארט-אפ' של יפן רוצה ש-AI ייכלל במדיניות ההגירה</h3>
             <p>...</p>
-        </div>
-        
-        <div class="card" style="border-top: 5px solid #007bff;" onclick="window.open('https://asia.nikkei.com/business/travel-leisure/myanmar-tourists-head-to-china-as-budget-flights-break-cost-barrier', '_blank')">
-            <div class="source-header">
-                <img src="https://www.google.com/s2/favicons?sz=64&domain=asia.nikkei.com" class="favicon">
-                <span>Nikkei Asia</span>
-            </div>
-            <h3>תיירים במיאנמר הולכים לסין מכיוון שטיסות בתקציב פורצות את מחסום העלויות</h3>
-            <p>לחץ לקריאה באתר המקור...</p>
-        </div>
-        
-        <div class="card" style="border-top: 5px solid #007bff;" onclick="window.open('https://www.handelsblatt.com/politik/international/fuenfjahresplan-china-will-unter-verschaerften-bedingungen-strategisch-handlungsfaehig-bleiben/100203024.html', '_blank')">
-            <div class="source-header">
-                <img src="https://www.google.com/s2/favicons?sz=64&domain=www.handelsblatt.com" class="favicon">
-                <span>Handelsblatt</span>
-            </div>
-            <h3>הקונגרס העממי: תוכנית חומש חדשה: "סין רוצה להישאר מסוגלת אסטרטגית לפעול בתנאים קשים יותר"</h3>
-            <p>המלחמה באיראן מאשרת את מנהיגותה של סין בחתירה לעצמאות רבה יותר. זה יתברר גם בקונגרס העממי הקרוב ובתוכנית החומש החדשה....</p>
-        </div>
-        
-        <div class="card" style="border-top: 5px solid #007bff;" onclick="window.open('https://www.lemonde.fr/international/live/2026/03/04/en-direct-iran-les-premiers-francais-rapatries-du-moyen-orient-ont-atterri-a-paris-israel-annonce-avoir-lance-une-nouvelle-large-vague-de-frappes-sur-l-iran_6668663_3210.html', '_blank')">
-            <div class="source-header">
-                <img src="https://www.google.com/s2/favicons?sz=64&domain=www.lemonde.fr" class="favicon">
-                <span>Le Monde</span>
-            </div>
-            <h3>בשידור חי, איראן: החוזרים הצרפתים הראשונים מהמזרח התיכון נחתו בפריז; ישראל הודיעה כי פתחה ב"גל גדול" חדש של תקיפות על איראן</h3>
-            <p>המטוס שנשכר על ידי אייר פראנס הגיע הלילה של יום רביעי מעומאן. כמאה מושבים נשמרו וזו הייתה טיסה שהובילה לקוחות ונוסעים כאחד....</p>
-        </div>
-        
-        <div class="card" style="border-top: 5px solid #007bff;" onclick="window.open('https://www.washingtonpost.com', '_blank')">
-            <div class="source-header">
-                <img src="https://www.google.com/s2/favicons?sz=64&domain=feeds.washingtonpost.com" class="favicon">
-                <span>Washington Post</span>
-            </div>
-            <h3>היכן נחתו מתקפות התגמול של איראן</h3>
-            <p>לחץ לקריאה באתר המקור...</p>
-        </div>
-        
-        <div class="card" style="border-top: 5px solid #007bff;" onclick="window.open('https://www.scmp.com/news/world/middle-east/article/3345359/us-and-kurds-discuss-potential-iran-military-operation-sources?utm_source=rss_feed', '_blank')">
-            <div class="source-header">
-                <img src="https://www.google.com/s2/favicons?sz=64&domain=www.scmp.com" class="favicon">
-                <span>SCMP</span>
-            </div>
-            <h3>ארה"ב והכורדים דנים במבצע צבאי פוטנציאלי של איראן: מקורות</h3>
-            <p>המיליציות האיראניות הכורדיות התייעצו עם ארה"ב בימים האחרונים ⁠אם וכיצד לתקוף את כוחות הביטחון של איראן בחלק המערבי של המדינה, לפי שלושה מקורות...</p>
-        </div>
-        
-        <div class="card" style="border-top: 5px solid #007bff;" onclick="window.open('https://www.foreignaffairs.com/united-states/one-mans-war-donald-trump-iran', '_blank')">
-            <div class="source-header">
-                <img src="https://www.google.com/s2/favicons?sz=64&domain=www.foreignaffairs.com" class="favicon">
-                <span>Foreign Affairs</span>
-            </div>
-            <h3>מלחמת איש אחד</h3>
-            <p>כיצד נשחקו אילוצים על סמכות המלחמה של נשיא ארה"ב - וכיצד לשחזר אותם....</p>
-        </div>
-        
-        <div class="card" style="border-top: 5px solid #28a745;" onclick="window.open('https://www.inss.org.il/he/%d7%94%d7%90%d7%99%d7%93%d7%90%d7%95%d7%9c%d7%95%d7%92%d7%99%d7%94-%d7%a9%d7%9c-%d7%90%d7%91%d7%95-%d7%9e%d7%90%d7%96%d7%9f-%d7%91%d7%99%d7%97%d7%a1-%d7%9c%d7%96%d7%94%d7%95%d7%aa%d7%94-%d7%94%d7%99/', '_blank')">
-            <div class="source-header">
-                <img src="https://www.google.com/s2/favicons?sz=64&domain=www.inss.org.il" class="favicon">
-                <span>INSS</span>
-            </div>
-            <h3>האידאולוגיה של אבו מאזן ביחס לזהותה היהודית של ישראל</h3>
-            <p>...</p>
-        </div>
-        
-            </div>
+        </div></div>
         </div>
     </body>
     </html>
-    
