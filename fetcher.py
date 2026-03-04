@@ -1,10 +1,8 @@
 import feedparser
-import time
 import requests
 from datetime import datetime
 from deep_translator import GoogleTranslator
 
-# רשימה מלאה ומעודכנת
 SOURCES = [
     {'name': 'Financial Times', 'url': 'https://www.ft.com/?format=rss', 'type': 'news'},
     {'name': 'Wall Street Journal', 'url': 'https://feeds.a.dj.com/rss/RSSWorldNews.xml', 'type': 'news'},
@@ -22,69 +20,55 @@ SOURCES = [
 def fetch_and_build():
     news_items = []
     translator = GoogleTranslator(source='auto', target='iw')
-    
-    # "תעודת זהות" של דפדפן אמיתי כדי למנוע חסימות
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-    }
-    
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
     now = datetime.now().strftime("%d/%m/%Y בשעה %H:%M")
     
     for src in SOURCES:
         try:
-            # שימוש ב-requests עם ה-headers החדשים
-            resp = requests.get(src['url'], headers=headers, timeout=15)
+            # שימוש ב-timeout ארוך יותר למניעת נפילות
+            resp = requests.get(src['url'], headers=headers, timeout=20)
+            # שימוש ב-parser ספציפי ליציבות ב-GitHub
             feed = feedparser.parse(resp.content)
             
             if feed.entries:
                 entry = feed.entries[0]
                 title = translator.translate(entry.title)
-                
-                desc = entry.get('summary', entry.get('description', ''))
-                clean_desc = desc[:200].split('<')[0] if desc else "לחץ לפרטים המלאים"
-                summary = translator.translate(clean_desc)
+                desc = entry.get('summary', entry.get('description', ''))[:200]
+                summary = translator.translate(desc) if desc else "לחץ לפרטים"
                 
                 news_items.append({
-                    'source': src['name'],
-                    'title': title,
-                    'summary': summary,
-                    'link': entry.link,
-                    'domain': src['url'].split('/')[2]
+                    'source': src['name'], 'title': title, 'summary': summary,
+                    'link': entry.link, 'domain': src['url'].split('/')[2]
                 })
-        except Exception as e:
-            print(f"Error fetching {src['name']}: {e}")
+        except: continue
 
-    # בניית ה-HTML
-    cards_html = ""
-    for item in news_items:
-        favicon = f"https://www.google.com/s2/favicons?sz=64&domain={item['domain']}"
-        cards_html += f"""
-        <div class="card" onclick="window.open('{item['link']}', '_blank')">
+    cards_html = "".join([f"""
+        <div class="card" onclick="window.open('{i['link']}', '_blank')">
             <div class="source-header">
-                <img src="{favicon}" class="favicon">
-                <span>{item['source']}</span>
+                <img src="https://www.google.com/s2/favicons?sz=64&domain={i['domain']}" class="favicon">
+                {i['source']}
             </div>
-            <h3>{item['title']}</h3>
-            <p>{item['summary']}...</p>
-        </div>"""
+            <h3>{i['title']}</h3>
+            <p>{i['summary']}...</p>
+        </div>""" for i in news_items])
 
     full_html = f"""
     <!DOCTYPE html>
     <html lang="he" dir="rtl">
     <head>
         <meta charset="UTF-8">
-        <title>מבט עולמי - 11 מקורות</title>
+        <title>מבט עולמי - לוח מלא</title>
         <style>
             body {{ font-family: 'Segoe UI', sans-serif; background: #f0f2f5; padding: 20px; }}
             .container {{ max-width: 1200px; margin: auto; }}
-            header {{ background: white; padding: 20px; border-radius: 15px; text-align: center; margin-bottom: 30px; }}
+            header {{ background: white; padding: 20px; border-radius: 15px; text-align: center; margin-bottom: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }}
             .update-bar {{ background: #fff3cd; padding: 10px; border-radius: 8px; margin-bottom: 20px; font-weight: bold; text-align: center; }}
-            .grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }}
+            .grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }}
             .card {{ background: white; padding: 20px; border-radius: 12px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 5px solid #007bff; transition: 0.3s; }}
             .card:hover {{ transform: translateY(-5px); }}
             .source-header {{ display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-weight: bold; color: #666; }}
             .favicon {{ width: 18px; height: 18px; }}
-            h3 {{ margin: 0 0 10px 0; font-size: 1.1em; }}
+            h3 {{ margin: 0 0 10px 0; font-size: 1.1em; color: #111; }}
         </style>
     </head>
     <body>
