@@ -1,0 +1,32 @@
+name: Daily News Update
+
+on:
+  schedule:
+    - cron: '0 6 * * *' # רץ כל יום ב-6 בבוקר
+  workflow_dispatch: # מאפשר לך להריץ עדכון ידני בלחיצת כפתור
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run fetcher
+        run: python fetcher.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'NewsBot'
+          git config --global user.email 'bot@news.com'
+          git add index.html
+          git commit -m "Auto-update news" || exit 0
+          git push
