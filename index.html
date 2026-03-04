@@ -3,33 +3,30 @@
     <html lang="he" dir="rtl">
     <head>
         <meta charset="UTF-8">
-        <title>מבט עולמי מעודכן</title>
+        <title>מבט עולמי - לוח מלא</title>
         <style>
-            body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; margin: 0; padding: 20px; }
+            body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; padding: 20px; }
             .container { max-width: 1200px; margin: auto; }
             header { background: white; padding: 20px; border-radius: 15px; text-align: center; margin-bottom: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-            .update-bar { background: #fff3cd; padding: 10px; border-radius: 8px; margin-bottom: 20px; font-weight: bold; color: #856404; display: flex; justify-content: center; align-items: center; gap: 15px; }
-            .refresh-btn { background: #007bff; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-family: inherit; font-weight: bold; }
-            .refresh-btn:hover { background: #0056b3; }
-            .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-            .card { background: white; padding: 20px; border-radius: 12px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 5px solid #007bff; }
+            .update-bar { background: #fff3cd; padding: 10px; border-radius: 8px; margin-bottom: 20px; font-weight: bold; text-align: center; }
+            .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+            .card { background: white; padding: 20px; border-radius: 12px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 5px solid #007bff; transition: 0.3s; }
+            .card:hover { transform: translateY(-5px); }
             .source-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-weight: bold; color: #666; }
-            .favicon { width: 16px; height: 16px; }
+            .favicon { width: 18px; height: 18px; }
+            h3 { margin: 0 0 10px 0; font-size: 1.1em; color: #111; }
         </style>
     </head>
     <body>
         <div class="container">
             <header>
                 <h1>מבט עולמי 🌍</h1>
-                <div class="update-bar">
-                    <span>עודכן לאחרונה: 04/03/2026 בשעה 06:30</span>
-                    <button class="refresh-btn" onclick="location.reload()">רענן דף</button>
-                </div>
+                <div class="update-bar">עודכן לאחרונה: 04/03/2026 בשעה 06:51</div>
             </header>
             <div class="grid">
         <div class="card" onclick="window.open('https://www.ft.com/content/9a9b0127-1014-4186-99e3-893603011cef', '_blank')">
             <div class="source-header">
-                <img src="https://www.google.com/s2/favicons?domain=www.ft.com" class="favicon">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=www.ft.com" class="favicon">
                 Financial Times
             </div>
             <h3>ישראל פותחת ב'תקיפות נרחבות' על איראן</h3>
@@ -37,7 +34,7 @@
         </div>
         <div class="card" onclick="window.open('https://www.wsj.com/articles/palestinians-flock-back-to-northern-gaza-on-foot-after-hostage-release-breakthrough-3f60e2db', '_blank')">
             <div class="source-header">
-                <img src="https://www.google.com/s2/favicons?domain=feeds.a.dj.com" class="favicon">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=feeds.a.dj.com" class="favicon">
                 Wall Street Journal
             </div>
             <h3>הפלסטינים זורמים חזרה לצפון עזה ברגל</h3>
@@ -45,27 +42,75 @@
         </div>
         <div class="card" onclick="window.open('https://www.nytimes.com/live/2026/03/03/world/iran-war-israel-lebanon-trump', '_blank')">
             <div class="source-header">
-                <img src="https://www.google.com/s2/favicons?domain=rss.nytimes.com" class="favicon">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=rss.nytimes.com" class="favicon">
                 New York Times
             </div>
             <h3>עדכונים חיים של איראן: ישראל מתחילה ב"גל רחב של תקיפות" על התשתית של איראן</h3>
-            <p>ארה"ב הכריזה על שמותיהם של ארבעה חיילים שנהרגו מירי מזל"ט איראני ביום ראשון. מנהיג הפיקוד המרכזי של ארה"ב אמר שיותר מ-50,000 חיילים, 200 לוחמים, שניים...</p>
+            <p>ארה"ב הכריזה על שמותיהם של ארבעה חיילים שנהרגו מירי מזל"ט איראני ביום ראשון. מנהיג הפיקוד המרכזי של ארה"ב אמר שיותר מ-50,000 חיילים, 200 לוחמים, שתי נושאות מטוסים...</p>
         </div>
         <div class="card" onclick="window.open('https://www.theguardian.com/world/2026/mar/03/south-sudan-risks-return-civil-war-violence-escalates', '_blank')">
             <div class="source-header">
-                <img src="https://www.google.com/s2/favicons?domain=www.theguardian.com" class="favicon">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=www.theguardian.com" class="favicon">
                 The Guardian
             </div>
             <h3>דרום סודן מסתכנת לחזור למלחמת אזרחים מלאה עם הסלמה של האלימות</h3>
-            <p><p>לפחות 169 הרוגים בפשיטה סמוך לגבול סודן כאשר העימותים בין כוחות הממשלה לאופוזיציה מתגברים</p><p>דרום סודן נרתעת מסכסוך מתגבר בין...</p>
+            <p><p>לפחות 169 הרוגים בפשיטה סמוך לגבול סודן כאשר העימותים בין כוחות הממשלה לאופוזיציה מתגברים</p><p>דרום סודן נרתעת מסכסוך הולך וגובר בין הממשל הממשלתי...</p>
         </div>
         <div class="card" onclick="window.open('https://asia.nikkei.com/editor-s-picks/interview/japan-s-startup-party-wants-ai-factored-into-migration-policy', '_blank')">
             <div class="source-header">
-                <img src="https://www.google.com/s2/favicons?domain=asia.nikkei.com" class="favicon">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=asia.nikkei.com" class="favicon">
                 Nikkei Asia
             </div>
             <h3>'מפלגת הסטארט-אפ' של יפן רוצה ש-AI ייכלל במדיניות ההגירה</h3>
-            <p>...</p>
+            <p>לחץ לפרטים...</p>
+        </div>
+        <div class="card" onclick="window.open('https://www.handelsblatt.com/finanzen/maerkte/marktberichte/asien-aktienmaerkte-brechen-ein-kospi-verliert-mehr-als-zwoelf-prozent/100205297.html', '_blank')">
+            <div class="source-header">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=www.handelsblatt.com" class="favicon">
+                Handelsblatt
+            </div>
+            <h3>שוקי המניות: שוקי המניות באסיה קורסים - קוספי הדרום קוריאני מאבד יותר מ-12 אחוז</h3>
+            <p>התקוות לסיום מהיר של המלחמה במזרח התיכון הולכות ומתמעטות. מדדי אסיה מגיבים באלימות במסחר המוקדם....</p>
+        </div>
+        <div class="card" onclick="window.open('https://www.lemonde.fr/international/live/2026/03/04/en-direct-iran-les-premiers-francais-rapatries-du-moyen-orient-ont-atterri-a-paris-israel-annonce-avoir-lance-une-nouvelle-large-vague-de-frappes-sur-l-iran_6668663_3210.html', '_blank')">
+            <div class="source-header">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=www.lemonde.fr" class="favicon">
+                Le Monde
+            </div>
+            <h3>בשידור חי, איראן: ישראל מכריזה על 'גל חדש של תקיפות' באיראן; טהראן טוענת כי פקדה מטרות ישראליות ואמריקאיות</h3>
+            <p>"לפני זמן קצר השלים חיל האוויר הישראלי, בהדרכת שירותי המודיעין, גל חדש של תקיפות נגד מרכזי הפיקוד של משטר הטרור האיראני....</p>
+        </div>
+        <div class="card" onclick="window.open('https://www.washingtonpost.com/investigations/2026/03/04/troops-killed-kuwait-base-iran-attack/', '_blank')">
+            <div class="source-header">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=feeds.washingtonpost.com" class="favicon">
+                Washington Post
+            </div>
+            <h3>לחיילי ארה"ב הייתה מעט הגנה מפני תקיפה של מזל"ט שהרגה שישה, כך עולה מהתמונות</h3>
+            <p>מתקן בכווית, מקום התקיפה, הוא בין 10 מוצבים צבאיים אמריקאים שנפגעו מתקיפות תגמול, יחד עם בסיסים צרפתיים ובריטים....</p>
+        </div>
+        <div class="card" onclick="window.open('https://www.scmp.com/week-asia/economics/article/3345373/thailands-ptt-freeze-pump-prices-iran-attacks-spur-panic-buying-mekong-area?utm_source=rss_feed', '_blank')">
+            <div class="source-header">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=www.scmp.com" class="favicon">
+                SCMP
+            </div>
+            <h3>ה-PTT של תאילנד להקפיא את מחירי המשאבות בזמן שהתקפות איראן מעוררות רכישת פאניקה באזור מקונג</h3>
+            <p>ענקית האנרגיה הנתמכת על ידי המדינה, PTT, תקפיא את מחירי המשאבות למשך 15 ימים, כאשר מלחמה במזרח התיכון מצמצמת את זרימת הנפט והגז דרך מיצר הורמוז המכריע, ומעוררת רכישת פאניקה...</p>
+        </div>
+        <div class="card" onclick="window.open('https://www.foreignaffairs.com/india/how-india-can-supercharge-its-development', '_blank')">
+            <div class="source-header">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=www.foreignaffairs.com" class="favicon">
+                Foreign Affairs
+            </div>
+            <h3>איך הודו יכולה להטעין את הפיתוח שלה</h3>
+            <p>ובאמת להתחרות בסין....</p>
+        </div>
+        <div class="card" onclick="window.open('https://www.inss.org.il/he/%d7%94%d7%90%d7%99%d7%93%d7%90%d7%95%d7%9c%d7%95%d7%92%d7%99%d7%94-%d7%a9%d7%9c-%d7%90%d7%91%d7%95-%d7%9e%d7%90%d7%96%d7%9f-%d7%91%d7%99%d7%97%d7%a1-%d7%9c%d7%96%d7%94%d7%95%d7%aa%d7%94-%d7%94%d7%99/', '_blank')">
+            <div class="source-header">
+                <img src="https://www.google.com/s2/favicons?sz=64&domain=www.inss.org.il" class="favicon">
+                INSS
+            </div>
+            <h3>האידאולוגיה של אבו מאזן ביחס לזהותה היהודית של ישראל</h3>
+            <p><p>בנאום במועצה המרכזית הפלסטינית ב-14 בינואר 2018 יצא מחמוד עבאס (אבו-מאזן), יו"ר הרשות הפלסטינית וראש אש"ף, נגד שורשי הקמת מדינת ישראל. המועצה כונסה בעקבות הכרת נשיא ארצות הברית טראמפ בירושלים כבירת...</p>
         </div></div>
         </div>
     </body>
